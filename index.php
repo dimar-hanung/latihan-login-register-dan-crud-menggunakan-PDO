@@ -16,4 +16,4 @@ include_once "layout_header.php";
 include_once "login.php";
  
 // layout_footer.php holds our javascript and closing html tags
-include_once "layout_footer.php";
+include_once "layout_footer.php";  

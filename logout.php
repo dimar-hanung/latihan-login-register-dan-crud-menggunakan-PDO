@@ -11,4 +11,4 @@ session_start();
 unset($_SESSION['user_id']);
 session_destroy();
 // Redirect to index.php page
-header("Location: login");
+header("Location: login.php");

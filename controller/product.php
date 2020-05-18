@@ -38,7 +38,6 @@ class Product
                 p.name ASC
             LIMIT
                 ?, ?";
-
         // prepare query statement
         $stmt = $this->conn->prepare($query);
 
@@ -88,8 +87,7 @@ class Product
             SET name=:name, price=:price, description=:description,
                 category_id=:category_id, user_id=:user_id, image=:image, created=:created";
 
-        $stmt = $this->conn->prepare($query);
-
+        $stmt = $this->conn->prepare($query);//bentar ngankat mie dulu, iya //makan lah //biar anget // aku lg makan mie, g
         // posted values
         $this->name = htmlspecialchars(strip_tags($this->name));
         $this->price = htmlspecialchars(strip_tags($this->price));
@@ -110,7 +108,7 @@ class Product
         $stmt->bindParam(":created", $this->timestamp);
 
         if ($stmt->execute()) {
-            header("Location: read_template");
+            header("Location: read_template.php");
         } else {
             return false;
         }
@@ -213,7 +211,7 @@ class Product
 
         // execute the query
         if ($stmt->execute()) {
-            header("Location: read_template");
+            header("Location: read_template.php");
         }
 
         return false;
@@ -238,13 +236,22 @@ class Product
     function uploadPhoto()
     {
 
+
+
+      
+
+
+        //batas................
+
+
+
         $result_message = "";
 
         // now, if image is not empty, try to upload the image
         if ($this->image) {
 
             // sha1_file() function is used to make a unique file name
-            $target_directory = "uploads/";
+            $target_directory = "../product/uploads/";
             $target_file = $target_directory . $this->image;
             $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
 
@@ -284,7 +291,12 @@ class Product
                 // it means there are no errors, so try to upload the file
                 if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
                     // it means photo was uploaded
+
+                    echo "upload berhasil";
+
                 } else {
+
+                    echo "upload gagal";
                     $result_message .= "<div class='alert alert-danger'>";
                     $result_message .= "<div>Unable to upload photo.</div>";
                     $result_message .= "<div>Update the record to upload photo.</div>";

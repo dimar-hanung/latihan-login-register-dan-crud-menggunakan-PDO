@@ -11,7 +11,7 @@ if (empty($_SESSION['user_id'])) {
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
 
 // include database and object files
-
+include_once '../database/database.php';
 include_once '../controller/product.php';
 include_once '../controller/category.php';
 
@@ -30,7 +30,7 @@ include_once "../layout_header.php";
 
 // contents will be here
 echo "<div class='right-button-margin'>";
-echo "<a href='read_template' class='btn btn-default pull-right'>Read Products</a>";
+echo "<a href='read_template.php' class='btn btn-default pull-right'>Read Products</a>";
 echo "</div>";
 // set ID property of product to be edited
 $product->id = $id;

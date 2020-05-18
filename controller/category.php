@@ -18,6 +18,7 @@ class Category
     // used by select drop-down list
     function read()
     {
+        
         //select all data
         $query = "SELECT
                     id, name
@@ -31,6 +32,7 @@ class Category
 
         return $stmt;
     }
+
     // used to read category name by its ID
     function readName()
     {
@@ -46,3 +48,5 @@ class Category
         $this->name = $row['name'];
     }
 }
+
+

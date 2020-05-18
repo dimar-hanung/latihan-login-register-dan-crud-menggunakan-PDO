@@ -30,7 +30,7 @@ if (!empty($_POST['btnLogin'])) {
         $user_id = $app->Login($username, $password); // check user login
         if ($user_id > 0) {
             $_SESSION['user_id'] = $user_id; // Set Session
-            header("Location: product/read_template"); // Redirect user to the product/read_template.php
+            header("Location: product/read_template.php"); // Redirect user to the product/read_template.php
         } else {
             $login_error_message = 'Invalid login details!';
         }
@@ -50,7 +50,7 @@ if (!empty($_POST['btnLogin'])) {
                 echo '<div class="alert alert-danger"><strong>Error: </strong> ' . $login_error_message . '</div>';
             }
             ?>
-            <form action="login" method="post">
+            <form action="login.php" method="post">
                 <div class="form-group">
                     <label for="">Username/Email</label>
                     <input type="text" id="username" name="username" class="form-control" placeholder="Enter Email/Username" />
@@ -61,7 +61,7 @@ if (!empty($_POST['btnLogin'])) {
                 </div>
                 <div class="form-group">
                     <input type="submit" name="btnLogin" class="btn btn-primary" value="Login" />
-                    <a href="register" style="float:right;" class="btn btn-success">Sign Up</a>
+                    <a href="register.php" style="float:right;" class="btn btn-success">Sign Up</a>
                     <hr />
                 </div>
             </form>

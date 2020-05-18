@@ -28,10 +28,10 @@ include_once "../layout_header.php";
 $stmt = $product->readAll($from_record_num, $records_per_page);
 
 // specify the page where paging is used
-$page_url = "read_template?";
+$page_url = "read_template.php?";
 
 // count total rows - used for pagination
-$total_rows;  //isi dengan obyek function countAll
+$total_rows = $product->countAll(); //isi dengan obyek function countAll
 
 // search form
 echo "<form role='search' action='search.php'>";
@@ -47,19 +47,19 @@ echo "</form>";
 // create product button
 echo "<div class='right-button-margin'>";
 
-echo "<a href='pdf_laporan_produkk' class='btn btn-success pull-right'>";
+echo "<a href='pdf_laporan_produk.php' class='btn btn-success pull-right'>";
 echo "<span class='glyphicon glyphicon-print'></span> Print ";
 echo "</a>";
-echo "<a href='pdf_laporan_produk_alll' class='btn btn-warning pull-right'>";
+echo "<a href='pdf_laporan_produk_all.php' class='btn btn-warning pull-right'>";
 echo "<span class='glyphicon glyphicon-print'></span> Print All ";
 echo "</a>";
-    echo "<ul><a href='create_product' class='btn btn-primary pull-right'>";
+    echo "<ul><a href='create_product.php' class='btn btn-primary pull-right'>";
         echo "<span class='glyphicon glyphicon-plus'></span> Create Product";
     echo "</a>";
 echo "</div>";
  
 // display the products if there are any
-if($total_rows>0){
+if($total_rows > 0){
  
     echo "<table class='table table-hover table-responsive table-bordered'>";
         echo "<tr>";
@@ -87,12 +87,12 @@ if($total_rows>0){
                 echo "<td>";
  
                     // read product button
-                    echo "<a href='read_one?id={$id}' class='btn btn-primary left-margin'>";
+                    echo "<a href='read_one.php?id={$id}' class='btn btn-primary left-margin'>";
                         echo "<span class='glyphicon glyphicon-list'></span> Read";
                     echo "</a>";
- 
+                
                     // edit product button
-                    echo "<a href='update_product?id={$id}' class='btn btn-info left-margin'>";
+                    echo "<a href='update_product.php?id={$id}' class='btn btn-info left-margin'>";
                         echo "<span class='glyphicon glyphicon-edit'></span> Edit";
                     echo "</a>";
  

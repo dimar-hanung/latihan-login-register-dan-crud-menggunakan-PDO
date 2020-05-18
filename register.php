@@ -36,7 +36,7 @@ if (!empty($_POST['btnRegister'])) {
         $user_id = $app->Register($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password']);
         // set session and redirect user to the profile page
         $_SESSION['user_id'] = $user_id;
-        header("Location: profile");
+        header("Location: profile.php");
     }
 }
 ?>
@@ -49,8 +49,8 @@ if (!empty($_POST['btnRegister'])) {
             if ($register_error_message != "") {
                 echo '<div class="alert alert-danger"><strong>Error: </strong> ' . $register_error_message . '</div>';
             }
-            ?>
-            <form action="register" method="post">
+            ?> 
+            <form action="register.php" method="post">
                 <div class="form-group">
                     <label for="">Name</label>
                     <input type="text" name="name" class="form-control" placeholder="Enter Name" />
@@ -69,7 +69,7 @@ if (!empty($_POST['btnRegister'])) {
                 </div>
                 <div class="form-group">
                     <input type="submit" name="btnRegister" class="btn btn-primary" value="Register" />
-                    <a href="login" style="float:right;" class="btn btn-warning">Back to Login</a>
+                    <a href="login.php" style="float:right;" class="btn btn-warning">Back to Login</a>
                     <hr />
                 </div>
             </form>

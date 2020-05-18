@@ -8,6 +8,7 @@ if (empty($_SESSION['user_id'])) {
 include_once '../database/database.php';
 
 include_once '../controller/product.php';
+include_once '../controller/category.php';
 
 
 // get database connection
@@ -23,7 +24,7 @@ $page_title = "Create Product";
 include_once "../layout_header.php";
 
 echo "<div class='right-button-margin'>";
-echo "<a href='read_template' class='btn btn-default pull-right'>Read Products</a>";
+echo "<a href='read_template.php' class='btn btn-default pull-right'>Read Products</a>";
 echo "</div>";
 
 ?>
@@ -38,7 +39,7 @@ if ($_POST) {
     $product->category_id = $_POST['category_id'];
     $product->user_id = $_SESSION['user_id'];
     $image = !empty($_FILES["image"]["name"])
-        ? sha1_file($_FILES['image']['tmp_name']) . "-" . basename($_FILES["image"]["name"]) : "";
+        ? sha1_file($_FILES['image']['tmp_name']) . "|icHa.DmR|" . basename($_FILES["image"]["name"]) : "";
     $product->image = $image;
     // create the product
     if ($product->create()) {

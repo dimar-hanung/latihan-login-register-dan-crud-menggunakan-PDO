@@ -10,7 +10,7 @@ session_start();
 
 // check user login
 if (empty($_SESSION['user_id'])) {
-    header("Location: index");
+    header("Location: index.php");
 }
 
 // Database connection
@@ -23,7 +23,7 @@ $page_title = "Profile";
 include_once "layout_header.php";
 
 // Application controller ( with UserController class )
-
+require __DIR__ . '/controller/UserController.php';
 $app = new UserController();
 
 $user = $app->UserDetails($_SESSION['user_id']); // get user details

@@ -4,7 +4,7 @@ session_start();
 
 // check user login
 if (empty($_SESSION['user_id'])) {
-    header("Location: ../index");
+    header("Location: ../index.php");
 }
 // get ID of the product to be read
 $id = isset($_GET['id']) ? $_GET['id'] : die('ERROR: missing ID.');
@@ -20,8 +20,8 @@ $db = $database->getConnection();
  
 // prepare objects
 $product = new Product($db);
+$category = new category($db);
 
- 
 // set ID property of product to be read
 $product->id = $id;
  
@@ -34,7 +34,7 @@ include_once "../layout_header.php";
  
 // read products button
 echo "<div class='right-button-margin'>";
-    echo "<a href='read_template' class='btn btn-primary pull-right'>";
+    echo "<a href='read_template.php' class='btn btn-primary pull-right'>";
         echo "<span class='glyphicon glyphicon-list'></span> Read Products";
     echo "</a>";
 echo "</div>";

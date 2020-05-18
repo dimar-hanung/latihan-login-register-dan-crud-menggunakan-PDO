@@ -20,7 +20,7 @@ include_once "../layout_navbar.php";
 $page_title = "You searched for \"{$search_term}\"";
 include_once "../layout_header.php";
  
-// query products
+// query products 
 $stmt = $product->search($search_term, $from_record_num, $records_per_page);
  
 // specify the page where paging is used

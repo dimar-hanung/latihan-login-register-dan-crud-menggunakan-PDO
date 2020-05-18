@@ -36,7 +36,7 @@ $total_rows = $product->countAll();
 // read products button
 echo "<div class='noprint'>";
 echo "<div class='right-button-margin'>";
-echo "<a href='read_template' class='btn btn-primary pull-right'>";
+echo "<a href='read_template.php' class='btn btn-primary pull-right'>";
 echo "<span class='glyphicon glyphicon-list'></span> Read Products";
 echo "</a>";
 echo "</div>";
